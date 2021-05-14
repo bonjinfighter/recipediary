@@ -1,0 +1,60 @@
+.overlay, #yt_player {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   }
+ 
+.overlay{
+    z-index: -1;
+}
+ 
+#yt_player{
+    z-index: -2;
+}
+
+#pagetitle {
+  position: relative;
+  }
+
+#pagetitle h1 {
+  position: absolute;
+  color: white;/*文字は白に*/
+  font-weight: bold; /*太字に*/
+  font-size: 2em;/*サイズ2倍*/
+  font-family :Quicksand, sans-serif;/*Google Font*/
+  top: 40%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding-top:40%;
+  /*文字の装飾は省略*/
+  }
+  #pagetitle p {
+  position: absolute;
+  color: white;/*文字は白に*/
+  font-family :Quicksand, sans-serif;/*Google Font*/
+  top: 60%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding-top:60%;
+  /*文字の装飾は省略*/
+  }
+  
+#buttons {
+  position: absolute;
+  font-family :Quicksand, sans-serif;/*Google Font*/
+  top: 80%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding-top:80%;
+}

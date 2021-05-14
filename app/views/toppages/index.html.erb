@@ -1,0 +1,47 @@
+<% if logged_in? %>
+<div class="row">
+  
+  <div class="col-3">
+    <p><%= current_user.name %>の献立候補</p>
+    <% @random.each do |recipe| %>
+      <%= recipe.photo %>
+      <%= recipe.title %>
+    <% end %>
+  </div>
+  
+  <div class="col-3">
+    <p>フォローしている新規お気に入り献立</p>
+    <% @random.each do |recipe| %>
+      <%= recipe.photo %>
+      <%= recipe.title %>
+    <% end %>
+  </div>
+  
+  <div class="col-3">
+    <p>新規投稿献立</p>
+    <% @random.each do |recipe| %>
+      <%= recipe.photo %>
+      <%= recipe.title %>
+    <% end %>
+  </div>
+</div>  
+  
+<div class="col-3">
+    <p>新規サイトリンク集</p>
+  
+</div>  
+
+<% else %>
+  <div id="pagetitle">
+      <div class="overlay">
+        <div id="yt_player"></div>
+      </div>
+      
+      <h1>レシピ日記</h1>
+      <p>自分だけのレパートリー</p>
+      <div id="buttons">
+        <%= link_to '新規登録', signup_path, class: 'btn btn-primary' %>
+        <%= link_to 'ログイン', login_path,  class: 'btn btn-secondary' %>
+      </div>
+  </div>
+<% end %>
