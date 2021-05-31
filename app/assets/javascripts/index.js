@@ -1,3 +1,16 @@
+/* global $ MobileDetect */
+/*
+const isMobile = !!new MobileDetect(window.navigator.userAgent).mobile();
+
+if (isMobile) {
+  $('.top__bg').css({
+    'background-image': 'url(public/images/toppages_1.jpeg/)',
+  });
+} else {
+  $('.top__video').css({ display: 'block' });
+}
+
+
      // YouTube APIの読み込み
       var tag = document.createElement('script');
       tag.src = "https://www.youtube.com/iframe_api";
@@ -17,7 +30,7 @@
                   playsinline: 1,
                   loop: 1,
                   listType: 'playlist',
-                  playlist: 'kLxnApfyFB4?modestbranding=1', //上と同じ動画ID_リピートするには入力必須
+                  playlist: 'kLxnApfyFB4', //上と同じ動画ID_リピートするには入力必須
                   rel: 0, // 関連動画の非表示
                   controls: 0, // 動画プレーヤーのコントロール非表示
               },
@@ -43,3 +56,5 @@
               event.target.playVideo(); //ビデオを再生
           }
       }
+
+*/

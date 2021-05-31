@@ -1,47 +1,117 @@
 <% if logged_in? %>
-<div class="row">
-  
-  <div class="col-3">
-    <p><%= current_user.name %>の献立候補</p>
-    <% @random.each do |recipe| %>
-      <%= recipe.photo %>
-      <%= recipe.title %>
-    <% end %>
-  </div>
-  
-  <div class="col-3">
-    <p>フォローしている新規お気に入り献立</p>
-    <% @random.each do |recipe| %>
-      <%= recipe.photo %>
-      <%= recipe.title %>
-    <% end %>
-  </div>
-  
-  <div class="col-3">
-    <p>新規投稿献立</p>
-    <% @random.each do |recipe| %>
-      <%= recipe.photo %>
-      <%= recipe.title %>
-    <% end %>
-  </div>
-</div>  
-  
-<div class="col-3">
-    <p>新規サイトリンク集</p>
-  
-</div>  
+  <div class="container m-3">
+    <h3 class="p-3 bg-dark text-light"><%= current_user.name %>のレシピ候補</h3> 
+    <div style="padding: 10px 0 10px 0;">
+      <button type="button" class="btn btn-raised btn-success" onclick="location.reload();">シャッフルする</button>   
+      <%= link_to '全ての自分のレシピ', user_path(current_user)  %>
 
+    </div>
+    <div class="row">
+        <% @recipes.sample(3).each do |recipe| %>
+            <div class="col-md-4 text-truncate">
+              <div class="card h-100">
+                  <img class="card-img-top"  src="<%= recipe.image %>" alt="">
+                    <div class="card-body">
+                      <p class="card-title"><%= recipe.title %></p>
+                      <p class="card-subtitle"><%= recipe.date %></p>
+                      <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-primary' %>
+                    </div>
+               </div>
+            </div>             
+        <% end %>
+      <% unless @recipes.any? %>
+        <div class="col-md-4">
+          <div class="card" style="background-color: #d3d3d3;">
+            <div class="card-body">
+              <p class="card-text">レシピの登録がまだありません。登録しませんか？</p>
+              <div id="buttons">
+                <%= link_to 'レシピを登録', new_recipe_path, class: 'btn btn-primary' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>  
+  
+  <div class="container m-3">
+    <h3 class="p-3 bg-dark text-light">レシピ友達の新規レシピ</h3>
+    <div class="row">
+      <% @followingrecipes.first(3).each do |recipe| %>
+        <div class="col-md-4">
+          <div class="card h-100">
+              <img class="card-img-top"  src="<%= recipe.image %>" alt="">
+                <div class="card-body">
+                  <p class="card-title"><%= recipe.title %></p>
+                  <p class="card-subtitle"><%= recipe.date %></p>
+                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-primary' %>
+               </div>
+          </div>
+        </div>
+      <% end %>
+      <% unless @followingrecipes.any? %>
+        <div class="col-md-4">
+          <div class="card" style="background-color: #d3d3d3;">
+            <div class="card-body">
+              <p class="card-text">レシピ友達の登録がまだありません。登録しませんか？</p>
+              <div id="buttons">
+                <%= link_to '全てのレシピを見る', recipes_path, class: 'btn btn-primary' %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>  
+  
+  <div class="container m-3">
+    <h3 class="p-3 bg-dark text-light">新規投稿レシピ</h3>
+    <div class="row">
+      <% @allrecipes.first(3).each do |recipe| %>
+        <div class="col-md-4">
+          <div class="card h-100">
+              <img class="card-img-top"  src="<%= recipe.image %>" alt="">
+                <div class="card-body">
+                  <p class="card-title"><%= recipe.title %></p>
+                  <p class="card-subtitle"><%= recipe.date %></p>
+                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-primary' %>
+                </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>  
+  
+  <div class="container m-3">
+    <h3 class="p-3 bg-dark text-light">新規サイトリンク集</h3>
+    <div class="row">
+      <button type="button" class="btn btn-link">
+        <a href="https://cookpad.com/" target="_blank">クックパッド</a>
+      </button>
+      <button type="button" class="btn btn-link">
+        <a href="https://cocoroplus.jp.sharp/kitchen/recipe/" target="_blank">cocoro kitchen</a>
+      </button>
+      <button type="button" class="btn btn-link">
+        <a href="https://delishkitchen.tv/" target="_blank">DELISH KITCHEN</a>
+      </button>
+      <button type="button" class="btn btn-link">
+        <a href="https://www.kurashiru.com/" target="_blank">クラシル</a>
+      </button>
+    </div>  
+  </div>
+  
 <% else %>
-  <div id="pagetitle">
-      <div class="overlay">
-        <div id="yt_player"></div>
+  <div class="top">
+    <div class="jumbotron" style="background-color: transparent;">
+      <div class="container-fluid">
+          <h1 class="text-center">レシピ日記</h1>
+          <p class="text-center">~自分だけのレパートリー~</p>
       </div>
-      
-      <h1>レシピ日記</h1>
-      <p>自分だけのレパートリー</p>
-      <div id="buttons">
-        <%= link_to '新規登録', signup_path, class: 'btn btn-primary' %>
-        <%= link_to 'ログイン', login_path,  class: 'btn btn-secondary' %>
-      </div>
+    </div>
+    <div id="buttons" class="text-center">
+      <%= link_to '新規登録', signup_path, class: 'btn btn-primary' %>
+      <%= link_to 'ログイン', login_path,  class: 'btn btn-secondary' %>
+    </div>
   </div>
 <% end %>
+

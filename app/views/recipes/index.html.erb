@@ -1,0 +1,16 @@
+  <div class="container">
+    <h3>全てのレシピ一覧</h3>
+    <div class="row">
+      <% @recipes.each do |recipe| %>
+        <div class="col-md-4">
+          <div class="card h-100">
+              <img class="card-img-top"  src="<%= recipe.image %>" alt="">
+                <div class="card-body">
+                  <p class="card-title"><%= recipe.title %></p>
+                  <p class="card-subtitle"><%= recipe.date %></p>
+                  <p class="card-text"><%= recipe.content %></p>
+                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-primary' %>
+                </div>
+          </div>
+        </div>
+      <% end %>

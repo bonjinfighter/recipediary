@@ -1,0 +1,13 @@
+<% if current_user.like?(recipe) %>
+  <%= form_with(model: current_user.favorites.find_by(recipe_id: recipe.id), local: true, method: :delete) do |f| %>
+    <%= hidden_field_tag :recipe_id, recipe.id %>
+    <%= f.submit 'Unlike', class: 'btn btn-danger btn-sm' %>
+  <% end %>
+<% else %>
+    <%= form_with(model: current_user.favorites.build, local: true) do |f| %>
+      <%= hidden_field_tag :recipe_id, recipe.id %>
+      <%= f.submit 'Like', class: 'btn btn-primary btn-sm' %>
+    <% end %>
+<% end %>
+
+

@@ -1,0 +1,29 @@
+<div class="container">
+  <h1 class="p3 bg-light text-dark"><%= @recipe.user.name %>のレシピ</h1>
+  <h2><%= @recipe.title %></h2>
+  <% if current_user == @recipe.user %>
+  <% end %>
+  
+  <%= render 'favorites/favorite_button', recipe: @recipe %>
+
+  <div class="row row-eq-height">
+    <div class="col-md-6">
+      <img src="<%= @recipe.image %>"  class="img-responsive" alt="" width="100%">
+    </div>
+    
+    <div class="col-md-6">
+      <div class="card" style="width:100%">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">料理した日：<%= @recipe.date %></p>
+          <li class="list-group-item"><%= @recipe.content %></p>
+          <% if current_user == @recipe.user %>
+            <%= link_to '編集', edit_recipe_path(@recipe), class: 'btn btn-info btn-sm' %>
+            <%= link_to "削除", @recipe, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  
+  </div>
+</div>
+

@@ -1,22 +1,29 @@
 <header class="mb-4">
-  <nav class="navbar navbar-expand navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Recipes</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">レシピ日記</a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+    
+    <div class="collapse navbar-collapse" id="nav-bar">
       <ul class="navbar-nav">
         <% if logged_in? %>
-          <li class="nav-item"><%= link_to 'Users', users_path, class: 'nav-link' %></li>
-          <li class="nav-item dropdown">
-            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><%= current_user.name %></a>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li class="dropdown-item"><%= link_to 'マイページ', user_path(current_user) %></li>
-              <li class="dropdown-divider"></li>
-              <li class="dropdown-item">Logout</li>
-            </ul>
-          </li>
+
+              <li class="nav-item"><%= link_to 'レシピ登録', new_recipe_path, class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to '自分のレシピ', user_path(current_user), class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to 'レシピ友達', followings_user_path(current_user), class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to 'お気に入りレシピ', likes_user_path(current_user), class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to '全てのレシピ', recipes_path, class:"nav-link" %></li>
+              <li class="nav-item"><%= link_to '参加ユーザー', users_path, class:"nav-link" %></li>
+              <li class="nav-item dropdown">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">ユーザー情報</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item"><%= link_to 'ユーザー情報編集', edit_user_path(current_user)%></a>
+                  <a class="dropdown-item"><%= link_to 'ログアウト', logout_path, method: :delete %></a>
+                </div>
+              </li>
+      </ul>
+
         <% else %>
           <li class="nav-item"><%= link_to '新規登録', signup_path, class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to 'ログイン', login_path, class: 'nav-link' %></li>
