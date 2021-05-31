@@ -24,7 +24,7 @@ class RecipesController < ApplicationController
       else
         @recipes = current_user.recipes.order(id: :desc).page(params[:page])
         flash[:danger] = 'レシピの投稿に失敗しました!'
-        redirect_back(fallback_location: root_path)
+        render :new
       end
   end
 
