@@ -60,11 +60,6 @@ class UsersController < ApplicationController
   def followings
     @user = User.find(params[:id])
     @followings = @user.followings.page(params[:page])
-    if @user == current_user
-      render "followings"
-    else
-      redirect_to root_url
-    end
   end
   
   def followers

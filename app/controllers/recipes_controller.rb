@@ -23,15 +23,15 @@ class RecipesController < ApplicationController
         redirect_to @recipe
       else
         @recipes = current_user.recipes.order(id: :desc).page(params[:page])
-        flash.now[:danger] = 'レシピの投稿に失敗しました!'
-        render 'toppages/index'
+        flash[:danger] = 'レシピの投稿に失敗しました!'
+        redirect_back(fallback_location: root_path)
       end
   end
 
   def destroy
     @recipe.destroy
     flash[:success] = 'レシピを削除しました!'
-    redirect_back(fallback_location: root_path)
+    redirect_to root_url
   end
 
   def edit
