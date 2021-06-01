@@ -4,6 +4,27 @@ img {
 }
 
 h3 {
-  opacity: 0.80;
+  width: 280px;
+  max-width: 100%;
+  opacity: 0.70;
   font-size: 90%;
+}
+
+.btn{
+  opacity: 0.75;
+}
+
+.navbar-brand {
+  width: 165px;
+  height: 58px;
+  position: absolute;
+  top:0;
+  left:0;
+}
+
+#register_button{
+  padding-left: 160px;
+}
+#register_button .btn{
+  opacity: 0.95;
 }

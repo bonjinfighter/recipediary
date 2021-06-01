@@ -1,14 +1,15 @@
 <header class="mb-4">
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">レシピ日記</a>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#nav-bar">
+      <a href="/"><img class="navbar-brand" href="" src="images/logo_nav.png"></a>
+      <div id="register_button">
+        <%= link_to 'レシピ登録', new_recipe_path, class: 'btn btn-info' %>
+      </div>
+    <button type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#nav-bar">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
     <div class="collapse navbar-collapse" id="nav-bar">
       <ul class="navbar-nav">
         <% if logged_in? %>
-              <%= link_to 'レシピを登録', new_recipe_path, class: 'btn btn-info' %>
               <li class="nav-item"><%= link_to '自分のレシピ', user_path(current_user), class:"nav-link" %></li>
               <li class="nav-item"><%= link_to 'お気に入りレシピ', likes_user_path(current_user), class:"nav-link" %></li>
               <li class="nav-item"><%= link_to 'レシピ友達', followings_user_path(current_user), class:"nav-link" %></li>
@@ -19,7 +20,7 @@
               <li class="nav-item"><%= link_to '全てのレシピ', recipes_path, class:"nav-link" %></li>
               <li class="nav-item"><%= link_to '全てのユーザー', users_path, class:"nav-link" %></li>
               <li class="nav-item"><%= link_to 'ユーザー情報', edit_user_path(current_user), class:"nav-link" %></li>
-              <li class="nav-item "><%= link_to 'ログアウト', logout_path, method: :delete, class:"nav-link"%></li>
+              <li class="nav-item" ><%= link_to 'ログアウト', logout_path, method: :delete, class:"nav-link text-danger"%></li>
       </ul>
 
         <% else %>
