@@ -1,5 +1,5 @@
   <div class="container">
-    <h3><%= @user.name %>のレシピ一覧</h3>
+    <h3 class="p-3 bg-dark text-light"><%= @user.name %>のレシピ一覧</h3>
     <%= render 'relationships/follow_button', user: @user %>
     <div class="row">
       <% @recipes.each do |recipe| %>
@@ -10,7 +10,7 @@
                   <p class="card-title"><%= recipe.title %></p>
                   <p class="card-subtitle"><%= recipe.date %></p>
                   <p class="card-text"><%= recipe.content %></p>
-                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-primary' %>
+                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-dark' %>
                 </div>
           </div>
         </div>

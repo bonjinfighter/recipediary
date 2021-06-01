@@ -1,5 +1,5 @@
 <% if logged_in? %>
-  <div class="container m-3">
+  <div class="container mt-3">
     <h3 class="p-3 bg-dark text-light"><%= current_user.name %>のレシピ候補</h3> 
     <div style="padding: 10px 0 10px 0;">
       <button type="button" class="btn btn-raised btn-success" onclick="location.reload();">シャッフルする</button>   
@@ -8,24 +8,24 @@
     </div>
     <div class="row">
         <% @recipes.sample(3).each do |recipe| %>
-            <div class="col-md-4 text-truncate">
+            <div class="col-md-4 text-truncate mt-2">
               <div class="card h-100">
                   <img class="card-img-top"  src="<%= recipe.image %>" alt="">
                     <div class="card-body">
                       <p class="card-title"><%= recipe.title %></p>
                       <p class="card-subtitle"><%= recipe.date %></p>
-                      <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-primary' %>
+                      <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-dark' %>
                     </div>
                </div>
             </div>             
         <% end %>
       <% unless @recipes.any? %>
-        <div class="col-md-4">
-          <div class="card" style="background-color: #d3d3d3;">
-            <div class="card-body">
+        <div class="col-md-4 mt-2">
+          <div class="card border-info mb-3">
+            <div class="card-body text-info">
               <p class="card-text">レシピの登録がまだありません。登録しませんか？</p>
               <div id="buttons">
-                <%= link_to 'レシピを登録', new_recipe_path, class: 'btn btn-primary' %>
+                <%= link_to 'レシピを登録', new_recipe_path, class: 'btn btn-info' %>
               </div>
             </div>
           </div>
@@ -34,28 +34,28 @@
     </div>
   </div>  
   
-  <div class="container m-3">
-    <h3 class="p-3 bg-dark text-light">レシピ友達の新規レシピ</h3>
+  <div class="container mt-3">
+    <h3 class="p-3 bg-dark text-light">友達の新規レシピ</h3>
     <div class="row">
       <% @followingrecipes.first(3).each do |recipe| %>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
           <div class="card h-100">
               <img class="card-img-top"  src="<%= recipe.image %>" alt="">
                 <div class="card-body">
                   <p class="card-title"><%= recipe.title %></p>
                   <p class="card-subtitle"><%= recipe.date %></p>
-                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-primary' %>
+                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-dark' %>
                </div>
           </div>
         </div>
       <% end %>
       <% unless @followingrecipes.any? %>
-        <div class="col-md-4">
-          <div class="card" style="background-color: #d3d3d3;">
+        <div class="col-md-4 mt-2">
+          <div class="card text-white bg-warning mb-3">
             <div class="card-body">
               <p class="card-text">レシピ友達の登録がまだありません。登録しませんか？</p>
               <div id="buttons">
-                <%= link_to '全てのレシピを見る', recipes_path, class: 'btn btn-primary' %>
+                <%= link_to '全てのレシピを見る', recipes_path, class: 'btn btn-dark' %>
               </div>
             </div>
           </div>
@@ -64,17 +64,17 @@
     </div>
   </div>  
   
-  <div class="container m-3">
+  <div class="container mt-3">
     <h3 class="p-3 bg-dark text-light">新規投稿レシピ</h3>
     <div class="row">
       <% @allrecipes.first(3).each do |recipe| %>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
           <div class="card h-100">
               <img class="card-img-top"  src="<%= recipe.image %>" alt="">
                 <div class="card-body">
                   <p class="card-title"><%= recipe.title %></p>
                   <p class="card-subtitle"><%= recipe.date %></p>
-                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-primary' %>
+                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-dark' %>
                 </div>
           </div>
         </div>
@@ -82,7 +82,7 @@
     </div>
   </div>  
   
-  <div class="container m-3">
+  <div class="container mt-3">
     <h3 class="p-3 bg-dark text-light">新規サイトリンク集</h3>
     <div class="row">
       <button type="button" class="btn btn-link">

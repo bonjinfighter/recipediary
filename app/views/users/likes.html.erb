@@ -1,17 +1,17 @@
   <div class="container">
-    <h3>お気に入りレシピ</h3>
+    <h3 class="p-3 bg-dark text-light">お気に入りレシピ</h3>
     <%= render 'relationships/follow_button', user: @user %>
     <div class="row">
     <% @likes.each do |recipe| %>
       <% if @likes.any? %>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
           <div class="card h-100">
               <img class="card-img-top"  src="<%= recipe.image %>" alt="">
                 <div class="card-body">
                   <p class="card-title"><%= recipe.title %></p>
                   <p class="card-subtitle"><%= recipe.date %></p>
                   <p class="card-text"><%= recipe.content %></p>
-                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-primary' %>
+                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-dark' %>
                 </div>
           </div>
         </div>

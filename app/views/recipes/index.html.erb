@@ -1,8 +1,8 @@
   <div class="container">
-    <h3>全てのレシピ一覧</h3>
+    <h3 class="p-3 bg-dark text-light">全てのレシピ一覧</h3>
     <div class="row">
       <% @recipes.each do |recipe| %>
-        <div class="col-md-4">
+        <div class="col-md-4 mt-2">
           <div class="card h-100">
               <img class="card-img-top"  src="<%= recipe.image %>" alt="">
                 <div class="card-body">
