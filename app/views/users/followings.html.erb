@@ -12,4 +12,16 @@
         </div>
       </li>
     <% end %>
+    <% unless @followings.any? %>
+        <div class="col-md-4 mt-2">
+          <div class="card border-info mb-3">
+            <div class="card-body text-info">
+              <p class="card-text">レシピ友達の登録がまだありません。登録しませんか？</p>
+              <div id="buttons">
+                <%= link_to '全てのレシピを見る', recipes_path, class: 'btn btn-dark' %>
+              </div>
+            </div>
+          </div>
+        </div>
+    <% end %>
   </ul>
