@@ -1,5 +1,5 @@
 <div class="container">
-  <h3 class="p-3 bg-dark text-light"><%= @recipe.user.name %>のレシピ</h3>
+  <h3 class="p-2 bg-dark text-light" style="font-size: 120%;"><%= @recipe.user.name %>のレシピ</h3>
   <h3><%= @recipe.title %></h3>
   <% if current_user == @recipe.user %>
   <% end %>

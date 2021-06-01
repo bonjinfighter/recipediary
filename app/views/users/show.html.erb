@@ -1,5 +1,5 @@
   <div class="container">
-    <h3 class="p-3 bg-dark text-light"><%= @user.name %>のレシピ一覧</h3>
+    <h3 class="p-2 bg-dark text-light" style="font-size: 120%;"><%= @user.name %>のレシピ一覧</h3>
     <%= render 'relationships/follow_button', user: @user %>
     <div class="row">
       <% @recipes.each do |recipe| %>

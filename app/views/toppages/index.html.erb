@@ -1,6 +1,6 @@
 <% if logged_in? %>
   <div class="container mt-3">
-    <h3 class="p-3 bg-dark text-light"><%= current_user.name %>のレシピ候補</h3> 
+    <h3 class="p-2 bg-dark text-light" style="font-size: 120%;"><%= current_user.name %>のレシピ候補</h3> 
     <div style="padding: 10px 0 10px 0;">
       <button type="button" class="btn btn-raised btn-success" onclick="location.reload();">シャッフルする</button>   
       <%= link_to '全ての自分のレシピ', user_path(current_user)  %>
@@ -35,7 +35,7 @@
   </div>  
   
   <div class="container mt-3">
-    <h3 class="p-3 bg-dark text-light">友達の新規レシピ</h3>
+    <h3 class="p-2 bg-dark text-light" style="font-size: 120%;">友達の新規レシピ</h3>
     <div class="row">
       <% @followingrecipes.first(3).each do |recipe| %>
         <div class="col-md-4 mt-2">
@@ -65,7 +65,7 @@
   </div>  
   
   <div class="container mt-3">
-    <h3 class="p-3 bg-dark text-light">新規投稿レシピ</h3>
+    <h3 class="p-2 bg-dark text-light" style="font-size: 120%;">新規投稿レシピ</h3>
     <div class="row">
       <% @allrecipes.first(3).each do |recipe| %>
         <div class="col-md-4 mt-2">
@@ -83,7 +83,7 @@
   </div>  
   
   <div class="container mt-3">
-    <h3 class="p-3 bg-dark text-light">新規サイトリンク集</h3>
+    <h3 class="p-2 bg-dark text-light" style="font-size: 120%;">新規サイトリンク集</h3>
     <div class="row">
       <button type="button" class="btn btn-link">
         <a href="https://cookpad.com/" target="_blank">クックパッド</a>
