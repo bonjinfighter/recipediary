@@ -1,9 +1,11 @@
 <header class="mb-4">
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
       <a href="/"><img class="navbar-brand" href="" src="images/logo_nav.png"></a>
-      <div id="register_button">
-        <%= link_to 'レシピ登録', new_recipe_path, class: 'btn btn-info' %>
-      </div>
+      <% if logged_in? %>
+        <div id="register_button">
+          <%= link_to 'レシピ登録', new_recipe_path, class: 'btn btn-info' %>
+        </div>
+      <% end %>
     <button type="button" class="navbar-toggler ml-auto" data-toggle="collapse" data-target="#nav-bar">
       <span class="navbar-toggler-icon"></span>
     </button>
