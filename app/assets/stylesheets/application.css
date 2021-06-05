@@ -16,7 +16,14 @@
  
  body {
   background: url(/images/toppages_1.jpeg);
-  background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
+  color: #21234C
 } 
 
+.textbg {
+  background: url(/images/textbg.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 3%;
+}

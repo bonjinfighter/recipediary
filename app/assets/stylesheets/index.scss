@@ -7,7 +7,7 @@ h3 {
   width: 280px;
   max-width: 100%;
   opacity: 0.70;
-  font-size: 90%;
+  color: #1D3154
 }
 
 .btn{
@@ -27,4 +27,10 @@ h3 {
 }
 #register_button .btn{
   opacity: 0.95;
+}
+
+.navbar {
+  background-color: rgba(0, 0, 0, 0.01);
+  color: black;
+  font-size: 1.0rem;
 }
