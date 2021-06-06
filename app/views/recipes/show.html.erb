@@ -26,8 +26,10 @@
       </div>
         <div class="mt-2 mb-2"><%= render 'favorites/favorite_button', recipe: @recipe %></div>
         <div class="mt-2">
+          <% unless current_user == @recipe.user %>
           <p class="mt-3 mb-0 pb-0">このユーザーをフォローしますか？
             <%= render 'relationships/follow_button', user: @recipe.user %>
+          <% end %>
           </p>
         </div>
     </div>
