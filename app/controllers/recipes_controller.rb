@@ -46,7 +46,7 @@ class RecipesController < ApplicationController
   end
   
   def recipe_params
-    params.require(:recipe).permit(:title, :content, :image, :date)
+    params.require(:recipe).permit(:title, :content, :image, :date, :url1, :url2)
   end
   
   def correct_user

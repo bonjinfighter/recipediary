@@ -1,11 +1,18 @@
+<div class="textbg p-3 pb-5">
 <%= form_with(model: @recipe, local: true) do |f| %>
   <div class="form-group">
     <%=f.label "画像をアップロード" %><br><%= f.file_field :image, class: "image" %></p>
     <%=f.label "料理名"%>
       <%= f.text_area :title, class: 'form-control', rows: 1 %><br>
 
-    <%=f.label "リンク、内容、感想"%>
+    <%=f.label "内容、感想"%>
       <%=f.text_area :content, class: 'form-control', rows: 5 %><br>
+
+    <%=f.label "リンク1"%>
+      <%=f.text_area :url1, class: 'form-control', rows: 1 %><br>
+      
+    <%=f.label "リンク2"%>
+      <%=f.text_area :url2, class: 'form-control', rows: 1 %><br>      
 
     <%=f.label "料理した日"%>
       <%=f.date_field :date, class: 'form-control' %><br>
@@ -17,3 +24,4 @@
 <%= form_with(model: @recipe, local: true) do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
 <% end %>
+</div>

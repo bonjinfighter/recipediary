@@ -1,17 +1,18 @@
+<div class="textbg p-3 pb-5">
   <div class="container">
-    <h3 class="p-2 bg-dark text-light" style="font-size: 120%;">お気に入りレシピ</h3>
+    <h3 class="p-2 pt-3 " style="font-size: 100%;">お気に入りレシピ</h3>
     <%= render 'relationships/follow_button', user: @user %>
     <div class="row">
     <% @likes.each do |recipe| %>
       <% if @likes.any? %>
         <div class="col-md-4 mt-2">
-          <div class="card h-100">
+          <div class="card h-100" style="background: rgba(255,255,255,0.1);">
               <img class="card-img-top"  src="<%= recipe.image %>" alt="">
                 <div class="card-body">
                   <p class="card-title"><%= recipe.title %></p>
                   <p class="card-subtitle"><%= recipe.date %></p>
                   <p class="card-text"><%= recipe.content %></p>
-                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-dark' %>
+                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-outline-dark' %>
                 </div>
           </div>
         </div>
@@ -20,3 +21,4 @@
         <%= link_to '全てのレシピ一覧', recipes_path %></li>
       <% end %>
     <% end %>
+  </div>

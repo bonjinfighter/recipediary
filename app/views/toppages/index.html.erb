@@ -1,15 +1,12 @@
 <% if logged_in? %>
   <div class="textbg m-0">
-    <div class="container mt-3 pt-2">
-      <h3 class="p-2" style="font-size: 120%; color:#1D3154; font-weight: bold;"><%= current_user.name %>のレシピ候補</h3> 
-      <div style="padding: 10px 0 10px 0;">
-        <button type="button" class="btn btn-raised btn-outline-success" onclick="location.reload();">シャッフルする</button>   
-  
-      </div>
+    <div class="container mt-3 pt-2 pb-3">
+      <h3 class="p-2" style="font-size: 100%;"><%= current_user.name %>のレシピ候補<a class="ml-2 btn btn-sm btn-raised btn-outline-dark" onclick="location.reload();" role="button">シャッフルする</a></h3>
+      <p class-"pt-0 pb-0 mt-0 mb-0" style="font-size: 90%;">お気に入りのレシピからランダムに3つ表示</p>
       <div class="row">
-          <% @recipes.sample(3).each do |recipe| %>
+          <% @likes.sample(3).each do |recipe| %>
               <div class="col-md-4 text-truncate mt-2">
-                <div class="card h-100">
+                <div class="card h-100" style="background: rgba(255,255,255,0.1);">
                     <img class="card-img-top"  src="<%= recipe.image %>" alt="">
                       <div class="card-body">
                         <p class="card-title"><%= recipe.title %></p>
@@ -19,11 +16,11 @@
                  </div>
               </div>             
           <% end %>
-        <% unless @recipes.any? %>
+        <% unless @likes.any? %>
           <div class="col-md-4 mt-2">
             <div class="card border-info mb-3">
               <div class="card-body text-info">
-                <p class="card-text">レシピの登録がまだありません。登録しませんか？</p>
+                <p class="card-text">お気に入りの投稿がまだありません。まずは投稿してみませんか？</p>
                 <div id="buttons">
                   <%= link_to 'レシピを登録', new_recipe_path, class: 'btn btn-outline-info' %>
                 </div>
@@ -36,12 +33,12 @@
   </div>  
 
   <div class="textbg m-0">
-    <div class="container mt-3">
-      <h3 class="p-2" style="font-size: 120%; color:#1D3154; font-weight: bold;">友達の新規レシピ</h3>
+    <div class="container mt-3 pb-3">
+      <h3 class="p-2 pt-3 " style="font-size: 100%;">友達の新規レシピ</h3>
       <div class="row">
         <% @followingrecipes.first(3).each do |recipe| %>
           <div class="col-md-4 mt-2">
-            <div class="card h-100">
+            <div class="card h-100" style="background: rgba(255,255,255,0.1);">
                 <img class="card-img-top"  src="<%= recipe.image %>" alt="">
                   <div class="card-body">
                     <p class="card-title"><%= recipe.title %></p>
@@ -68,12 +65,12 @@
   </div>  
   
   <div class="textbg m-0">
-    <div class="container mt-3">
-      <h3 class="p-2"style="font-size: 120%; color:#1D3154; font-weight: bold;">新規投稿レシピ</h3>
+    <div class="container mt-3 pb-3">
+      <h3 class="p-2 pt-3"style="font-size: 100%;">新規投稿レシピ</h3>
       <div class="row">
         <% @allrecipes.first(3).each do |recipe| %>
           <div class="col-md-4 mt-2">
-            <div class="card h-100">
+            <div class="card h-100" style="background: rgba(255,255,255,0.1);">
                 <img class="card-img-top"  src="<%= recipe.image %>" alt="">
                   <div class="card-body">
                     <p class="card-title"><%= recipe.title %></p>
@@ -87,9 +84,9 @@
     </div>  
   </div>  
   
-  <div class="textbg m-0">
-    <div class="container mt-3">
-      <h3 class="p-2" style="font-size: 120%; color:#1D3154; font-weight: bold;">参考サイト</h3>
+  <div class="textbg m-0 mb-3">
+    <div class="container mt-3 mb-3">
+      <h3 class="p-2 pt-3" style="font-size: 100%;">各種レシピサイト</h3>
       <div class="row">
         <button type="button" class="btn btn-link">
           <a href="https://cookpad.com/" target="_blank">クックパッド</a>
@@ -112,15 +109,17 @@
   
 <% else %>
   <div class="top">
-    <div class="jumbotron" style="background-color: transparent;">
-      <div class="container-fluid">
-          <h1 class="text-center">レシピ日記</h1>
-          <p class="text-center">~自分だけのレパートリー~</p>
+    <div class="textbg p-3 pt-5 pb-5">
+      <div class="jumbotron" style="background-color: transparent;">
+        <div class="container-fluid">
+            <h1 class="text-center">レシピ日記</h1>
+            <p class="text-center">~自分だけのレパートリー~</p>
+        </div>
       </div>
-    </div>
-    <div id="buttons" class="text-center">
-      <%= link_to '新規登録', signup_path, class: 'btn btn-primary' %>
-      <%= link_to 'ログイン', login_path,  class: 'btn btn-secondary' %>
+      <div id="buttons" class="text-center">
+        <%= link_to '新規登録', signup_path, class: 'btn btn-primary' %>
+        <%= link_to 'ログイン', login_path,  class: 'btn btn-secondary' %>
+      </div>
     </div>
   </div>
 <% end %>

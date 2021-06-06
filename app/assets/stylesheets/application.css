@@ -18,7 +18,8 @@
   background: url(/images/toppages_1.jpeg);
   background-size: cover;
   height: 100vh;
-  color: #21234C
+  color: #21234C;
+  padding-top: 60px; 
 } 
 
 .textbg {
@@ -27,3 +28,4 @@
   background-size: cover;
   margin: 3%;
 }
+

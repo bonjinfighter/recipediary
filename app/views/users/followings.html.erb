@@ -1,27 +1,57 @@
-  <ul class="list-unstyled">
-    <% @followings.each do |user| %>
-      <li class="media">
-        <img class="mr-2 rounded" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">
-        <div class="media-body">
-          <div>
-            <%= user.name %>
-          </div>
-          <div>
-            <p><%= link_to 'レシピ一覧', user_path(user) %></p>
-          </div>
+<div class="textbg p-3 pb-5">
+  <h3 class="p-2 pt-3 " style="font-size: 100%;">フォローしているレシピ友達一覧</h3>
+    <ul class="list-unstyled">
+      <% @followings.each do |user| %>
+      <div class="row mt-4">
+        <div class="col-md-5">
+            <li class="media">
+              <img class="mr-2 rounded" src="<%= gravatar_url(user, { size: 50 }) %>" alt="">
+              <div class="media-body">
+                <div style="font-weight:bold">
+                  <%= user.name %>
+                </div>
+                <div>
+                  <p><%= link_to 'レシピ一覧へ', user_path(user) %></p>
+                  <p><%= user.title %></p>
+                </div>
+              </div>
+            </li>
         </div>
-      </li>
-    <% end %>
-    <% unless @followings.any? %>
-        <div class="col-md-4 mt-2">
-          <div class="card border-info mb-3">
-            <div class="card-body text-info">
-              <p class="card-text">レシピ友達の登録がまだありません。登録しませんか？</p>
-              <div id="buttons">
-                <%= link_to '全てのレシピを見る', recipes_path, class: 'btn btn-dark' %>
+        <div class="col-md-7">
+          <div class="card mb-3" style="max-width: 540px; background: rgba(255,255,255,0.1)">
+            <div class="row">
+              <% if user.recipes.any? %>
+                <div class="col-md-6">
+                  <img src="<%= user.recipes.last.image %>" alt="">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body"> 
+                    <div class="card-title">
+                      <p><%= user.recipes.last.title %></p>
+                    </div>
+                    <div class="card-subtitle">
+                      <p><%= user.recipes.last.date %></p>
+                    </div>
+                    <%= link_to "詳細",("/recipes/#{user.recipes.last.id}"), class: 'btn btn-outline-dark' %>
+                  </div> 
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>        
+      </div>            
+      <% end %>
+      <% unless @followings.any? %>
+          <div class="col-md-4 mt-2">
+            <div class="card border-info mb-3">
+              <div class="card-body text-info">
+                <p class="card-text">レシピ友達の登録がまだありません。登録しませんか？</p>
+                <div id="buttons">
+                  <%= link_to '全てのレシピを見る', recipes_path, class: 'btn btn-outline-dark' %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-    <% end %>
-  </ul>
+      <% end %>
+    </ul>
+  </div>
