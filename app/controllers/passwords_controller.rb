@@ -1,7 +1,6 @@
 class PasswordsController < ApplicationController
   module V1
     class PasswordsController < ApplicationController
-      skip_before_action :authenticate_user_from_token!, only: [:create, :update]
 
       def create
         user = User.find_by(email: create_params[:email])
