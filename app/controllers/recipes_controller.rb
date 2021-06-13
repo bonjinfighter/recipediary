@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
-  before_action :require_user_logged_in
-  before_action :correct_user, only: [:edit, :update, :destroy]
+before_action :authenticate_user!	
+before_action :correct_user, only: [:edit, :update, :destroy]
   
   def index
     @recipes = Recipe.all.order(id: :desc)
@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
   end 
   
   def new
-    if logged_in?
+    if user_signed_in?
       @recipe = current_user.recipes.build
     end
   end

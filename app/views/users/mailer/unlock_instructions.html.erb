@@ -1,0 +1,7 @@
+<p>こんにちは <%= @resource.email %>さん!</p>
+
+<p>規定回数以上のログインの試みから、あなたのアカウントはロックしました。</p>
+
+<p>アンロックするために、以下のURLよりアクセスをお願いします。</p>
+
+<p><%= link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token) %></p>

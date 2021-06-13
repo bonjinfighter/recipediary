@@ -1,7 +1,6 @@
-<% if logged_in? %>
   <div class="textbg m-0">
     <div class="container mt-3 pt-2 pb-3">
-      <h3 class="p-2" style="font-size: 100%;"><%= current_user.name %>のレシピ候補<a class="ml-2 btn btn-sm btn-raised btn-outline-dark" onclick="location.reload();" role="button">シャッフルする</a></h3>
+      <h3 class="p-2"><%= current_user.name %>のレシピ候補<a class="ml-2 btn btn-sm btn-raised btn-outline-dark" onclick="location.reload();" role="button">シャッフルする</a></h3>
       <p class-"pt-0 pb-0 mt-0 mb-0" style="font-size: 90%;">お気に入りのレシピからランダムに3つ表示</p>
       <div class="row">
           <% @likes.sample(3).each do |recipe| %>
@@ -34,7 +33,7 @@
 
   <div class="textbg m-0">
     <div class="container mt-3 pb-3">
-      <h3 class="p-2 pt-3 " style="font-size: 100%;">友達の新規レシピ</h3>
+      <h3 class="p-2 pt-3 ">友達の新規レシピ</h3>
       <div class="row">
         <% @followingrecipes.first(3).each do |recipe| %>
           <div class="col-md-4 mt-2">
@@ -66,7 +65,7 @@
   
   <div class="textbg m-0">
     <div class="container mt-3 pb-3">
-      <h3 class="p-2 pt-3"style="font-size: 100%;">新規投稿レシピ</h3>
+      <h3 class="p-2 pt-3">新規投稿レシピ</h3>
       <div class="row">
         <% @allrecipes.first(3).each do |recipe| %>
           <div class="col-md-4 mt-2">
@@ -86,28 +85,22 @@
   
   <div class="textbg m-0 mb-3">
     <div class="container mt-3 mb-3">
-      <h3 class="p-2 pt-3" style="font-size: 100%;">各種レシピサイト</h3>
+      <h3 class="p-2 pt-3">各種レシピサイト</h3>
       <div class="row">
-        <button type="button" class="btn btn-link">
-          <a href="https://cookpad.com/" target="_blank">クックパッド</a>
-        </button>
-        <button type="button" class="btn btn-link">
-          <a href="https://cocoroplus.jp.sharp/kitchen/recipe/" target="_blank">cocoro kitchen</a>
-        </button>
-        <button type="button" class="btn btn-link">
-          <a href="https://delishkitchen.tv/" target="_blank">DELISH KITCHEN</a>
-        </button>
-        <button type="button" class="btn btn-link">
-          <a href="https://www.kurashiru.com/" target="_blank">クラシル</a>
-        </button>
-        <button type="button" class="btn btn-link">
-          <a href="https://recipe.rakuten.co.jp/" target="_blank">楽天レシピ</a>
-        </button>
+          <a href="https://cookpad.com/" class="btn btn-lg btn-outline-danger ml-3" target="_blank">クックパッド</a>
+          <a href="https://cocoroplus.jp.sharp/kitchen/recipe/" class="btn btn-lg btn-outline-danger ml-3"target="_blank">cocoro kitchen</a>
+          <a href="https://delishkitchen.tv/" class="btn btn-lg btn-outline-danger ml-3" target="_blank">DELISH KITCHEN</a>
+          <a href="https://www.kurashiru.com/" class="btn btn-lg btn-outline-danger ml-3" target="_blank">クラシル</a>
+          <a href="https://recipe.rakuten.co.jp/" class="btn btn-lg btn-outline-danger ml-3" target="_blank">楽天レシピ</a>
       </div>  
     </div>
   </div>
-  
-<% else %>
+    <div class="container mt-3 mb-3">  
+    <%= link_to 'プライバシーポリシー', page_path('privacy'), class:"btn btn-light" %>
+    <%= link_to '利用規約', page_path('terms'), class:"btn btn-light" %>
+    </div>
+
+<% unless user_signed_in? %>
   <div class="top">
     <div class="textbg p-3 pt-5 pb-5">
       <div class="jumbotron" style="background-color: transparent;">
@@ -117,10 +110,11 @@
         </div>
       </div>
       <div id="buttons" class="text-center">
-        <%= link_to '新規登録', signup_path, class: 'btn btn-primary' %>
-        <%= link_to 'ログイン', login_path,  class: 'btn btn-secondary' %>
+        <%= link_to '新規登録', new_user_registration_path, class: 'btn btn-primary' %>
+        <%= link_to 'ログイン', new_user_session_path, class: 'btn btn-secondary' %>
       </div>
     </div>
   </div>
 <% end %>
+
 

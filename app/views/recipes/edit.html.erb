@@ -1,6 +1,6 @@
 <%= form_with(model: @recipe, local: true) do |f| %>
 <div class="textbg p-3 pb-5">
-  <h1 class="p-2 pt-3 " style="font-size: 100%;">レシピ詳細　編集</h1>
+  <h3 class="p-2 pt-3 ">レシピ詳細　編集</h3>
     <div class="form-group">
       <img src="<%= @recipe.image %>" alt="">
     <%=f.label "画像をアップロード" %><br><%= f.file_field :image, class: "image" %></p>

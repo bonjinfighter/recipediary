@@ -65,3 +65,26 @@ group :production do
 end
 
 gem 'rails-i18n'
+
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+
+gem 'devise-i18n'
+
+# Bootstrap
+gem 'devise-bootstrap-views', '~> 1.0'
+
+gem 'jquery-rails'
+
+gem 'bootstrap-sass'
+
+gem 'figaro'
+
+gem "paranoia", "~> 2.0"
+
+gem "omniauth-rails_csrf_protection"
+
+gem 'high_voltage', '~> 3.1'

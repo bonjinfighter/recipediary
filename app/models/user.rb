@@ -1,11 +1,18 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   before_save { self.email.downcase! }
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
   validates :title, length: { maximum: 255 }
-  has_secure_password
+
+  acts_as_paranoid
+  
+  devise :omniauthable
 
   has_many :recipes
   has_many :relationships
@@ -54,4 +61,15 @@ class User < ApplicationRecord
   def like?(recipe)
     self.likes.include?(recipe)
   end 
+  
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.name = auth.name
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0, 20] # ランダムなパスワードを作成
+    end
+  end
+  
 end

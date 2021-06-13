@@ -1,7 +1,7 @@
 <div class="textbg p-3 pb-5">
 
 <div class="container">
-  <h3 class="p-2 pt-3 " style="font-size: 100%;"><%= @recipe.user.name %>のレシピ</h3>
+  <h3 class="p-2 pt-3 "><%= @recipe.user.name %>のレシピ</h3>
   <h3><%= @recipe.title %></h3>
   <% if current_user == @recipe.user %>
   <% end %>

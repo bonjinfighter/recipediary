@@ -1,6 +1,6 @@
 class FavoritesController < ApplicationController
-  before_action :require_user_logged_in
-
+  before_action :authenticate_user!	
+  
   def create
     recipe = Recipe.find(params[:recipe_id])
     current_user.like(recipe)

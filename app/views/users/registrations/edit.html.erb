@@ -1,0 +1,56 @@
+<div class="textbg p-3 pb-5" style="font-size: 120%;">
+  <div class="row">
+    <div class="col-sm-6 offset-sm-3">
+      <h3>ユーザー情報編集</h3>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "users/shared/error_messages", resource: resource %>
+
+      <div class="form-group">
+        <%= f.label :name, 'ユーザー名' %>
+        <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+      </div>
+      
+      <div class="form-group">
+        <%= f.label :email, :class => "form-label" %><br />
+        <%= f.email_field :email, autocomplete: "email", :class => "form-control"  %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+      
+      <div class="form-group">
+        <%= f.label :current_password, :class => "form-label"%> <i>(もしユーザー情報を変更する場合にはご入力ください)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", :class => "form-control" %>
+      </div> <br />
+  
+  
+      <div class="form-group">
+        <%= f.label :password, :class => "form-label" %> <i>(６文字以上。変更が必要なければ空欄にしてください)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password", :class => "form-control" %>
+      </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, :class => "form-label" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control" %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :title, '紹介文(任意)' %>
+    <%= f.text_field :title , class: 'form-control', rows: 5%>  
+  </div>
+        
+
+  <div class="actions">
+    <%= f.submit "変更する", class:"btn btn-outline-primary" %>
+  </div>
+<% end %>
+
+<a href="http://ja.gravatar.com/">ユーザーアイコンはgravatar(外部サイト)で設定できます</a>
+
+<p><%= button_to "退会する", registration_path(resource_name), class: "btn btn-outline-danger destroy-user", data: { confirm: "投稿した内容などは元に戻せませんがよろしいですか？" }, method: :delete %></p>
+<br />
+<p class="btn btn-outline-primary"><%= link_to "戻る", :back %></p>
+
+  </div>
+</div>

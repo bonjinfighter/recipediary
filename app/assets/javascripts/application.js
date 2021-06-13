@@ -15,3 +15,5 @@
 //= require_tree .
 //= require index
 
+//= require jquery3
+//= require bootstrap-sprockets

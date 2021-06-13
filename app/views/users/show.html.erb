@@ -1,6 +1,6 @@
 <div class="textbg p-3 pb-5">
     <div class="container">
-      <h3 class="p-2 pt-3 " style="font-size: 100%;"><%= @user.name %>のレシピ一覧</h3>
+      <h3 class="p-2 pt-3 "><%= @user.name %>のレシピ一覧</h3>
       <% unless current_user == @user %>
         <%= render 'relationships/follow_button', user: @user %>
         <p class="mt-2">紹介文：<%= @user.title %></p>
