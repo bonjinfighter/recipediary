@@ -321,7 +321,7 @@ Devise.setup do |config|
     #既定値はtrueで, リセットされた後に自動的にサインインする。
     config.sign_in_after_reset_password = true
   #（略）
-    config.omniauth :facebook, ENV['FACEBOOK_CLIENT_ID'], ENV['FACEBOOK_CLIENT_SECRET']
+    config.omniauth :facebook, "781268029243749", "8681f5dd000d389b6b9e420b3c6b5680"
 
   end
 end
