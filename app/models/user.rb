@@ -68,7 +68,7 @@ class User < ApplicationRecord
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
     # SNS認証を行ったことがあるかを判断して、データベースに保存
     user = User.where(email: auth.info.email).first_or_initialize(
-       nickname: auth.info.name,
+         name: auth.info.name,
          email: auth.info.email
      )
     # SNS認証を行っていなかった場合、メールアドレスで検索
