@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   
   root to:  'toppages#index'
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
-
+  devise_for :users, controllers: {
+     omniauth_callbacks: 'users/omniauth_callbacks',
+     registrations: 'users/registrations'
+   }
+   
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy] do
     member do
       get :followings

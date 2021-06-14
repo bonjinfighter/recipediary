@@ -2,7 +2,10 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook]
+
+  has_many :sns_credentials
+  
   before_save { self.email.downcase! }
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 },
@@ -12,7 +15,6 @@ class User < ApplicationRecord
 
   acts_as_paranoid
   
-  devise :omniauthable
 
   has_many :recipes
   has_many :relationships
@@ -62,18 +64,21 @@ class User < ApplicationRecord
     self.likes.include?(recipe)
   end 
   
-  def self.find_for_oauth(auth)
-    user = User.where(uid: auth.uid, provider: auth.provider).first
-
-    unless user
-      user = User.create(
-        uid:      auth.uid,
-        provider: auth.provider,
-        email:    auth.info.email,
-        password: Devise.friendly_token[0, 20]
-      )
-    end
-    user
+  def self.from_omniauth(auth)
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+    # SNS認証を行ったことがあるかを判断して、データベースに保存
+    user = User.where(email: auth.info.email).first_or_initialize(
+       nickname: auth.info.name,
+         email: auth.info.email
+     )
+    # SNS認証を行っていなかった場合、メールアドレスで検索
+  
+    # userが登録済みであるか判断
+     if user.persisted?
+       sns.user = user
+       sns.save
+     end
+     { user: user, sns: sns }
   end
 end
   

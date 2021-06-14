@@ -15,28 +15,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    build_resource(sign_up_params)
-    resource.save
-    yield resource if block_given?
-    if resource.persisted?
-      if resource.active_for_authentication?
-        set_flash_message! :success, :signed_up
-        sign_up(resource_name, current_user)
-
-        # 登録したアカウントにパスワードリセットメール送信
-        self.resource = resource_class.send_reset_password_instructions(resource_params)
-
-        redirect_to admins_path
-      else
-        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-        expire_data_after_sign_in!
-        respond_with resource, location: after_inactive_sign_up_path_for(resource)
-      end
-    else
-      clean_up_passwords resource
-      set_minimum_password_length
-      respond_with resource
-    end
+   if params[:sns_auth] == 'true'
+     pass = Devise.friendly_token
+     params[:user][:password] = pass
+     params[:user][:password_confirmation] = pass
+   end
+   super
   end
 
   # GET /resource/edit
