@@ -42,7 +42,11 @@
         </div>
     <% end %>
     
+    <%= link_to "Facebookで登録", user_facebook_omniauth_authorize_path, method: :post%>
+
+    
     <%= render "users/shared/links" %>
+    
         <div class="container">  
           <%= link_to 'プライバシーポリシー', page_path('privacy'), class:"btn btn-link" %>
           <%= link_to '利用規約', page_path('terms'), class:"btn btn-link" %>
