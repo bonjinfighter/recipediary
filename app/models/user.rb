@@ -69,12 +69,9 @@ class User < ApplicationRecord
     sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
     # SNS認証を行ったことがあるかを判断して、データベースに保存
     
-    pass = Devise.friendly_token[0,20]
     user = User.where(email: auth.info.email).first_or_initialize(
          name: auth.info.name,
          email: auth.info.email,
-         password: pass,
-         password_confirmation: pass,
      )
     # SNS認証を行っていなかった場合、メールアドレスで検索
   
