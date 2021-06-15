@@ -70,9 +70,8 @@ class User < ApplicationRecord
     # SNS認証を行ったことがあるかを判断して、データベースに保存
     
     user = User.where(email: auth.info.email).first_or_initialize(
-      user.name= auth.info.name,
-      user.email = auth.info.email,
-      user.password = Devise.friendly_token[0,20]
+         name: auth.info.name,
+         email: auth.info.email
      )
     # SNS認証を行っていなかった場合、メールアドレスで検索
   

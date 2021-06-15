@@ -16,7 +16,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     sign_in_and_redirect @user, event: :authentication
   else #ユーザー情報が未登録なので、新規登録画面へ遷移する
     @sns_id = sns_info[:sns].id
-    render template: 'users/registrations/new'
+    render 'users/registrations/new'
   end
  end
   # You should configure your model like this:
