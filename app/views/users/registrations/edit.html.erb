@@ -20,12 +20,6 @@
       <% end %>
       
       <div class="form-group">
-        <%= f.label :current_password, :class => "form-label"%> <i>(もしユーザー情報を変更する場合にはご入力ください)</i><br />
-        <%= f.password_field :current_password, autocomplete: "current-password", :class => "form-control" %>
-      </div> <br />
-  
-  
-      <div class="form-group">
         <%= f.label :password, :class => "form-label" %> <i>(６文字以上。変更が必要なければ空欄にしてください)</i><br />
         <%= f.password_field :password, autocomplete: "new-password", :class => "form-control" %>
       </div>
