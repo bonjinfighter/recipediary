@@ -66,21 +66,15 @@ class User < ApplicationRecord
   end 
   
   def self.from_omniauth(auth)
-    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
-    # SNS認証を行ったことがあるかを判断して、データベースに保存
-    
-    user = User.where(email: auth.info.email).first_or_initialize(
-         name: auth.info.name,
-         email: auth.info.email,
-     )
-    # SNS認証を行っていなかった場合、メールアドレスで検索
-  
-    # userが登録済みであるか判断
-     if user.persisted?
-       sns.user = user
-       sns.save
-     end
-     { user: user, sns: sns }
+  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+    user.email = auth.info.email
+    user.password = Devise.friendly_token[0, 20]
+    user.name = auth.info.name   # assuming the user model has a name
+    user.image = auth.info.image # assuming the user model has an image
+    # If you are using confirmable and the provider(s) you use validate emails, 
+    # uncomment the line below to skip the confirmation emails.
+    # user.skip_confirmation!
+    end
   end
 end
   
