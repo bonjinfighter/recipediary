@@ -14,6 +14,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
  def create
+   if params[:sns_auth] == 'true'
+     params[:user][:password] = "abcdefg1"
+     params[:user][:password_confirmation] = "abcdefg1"
+   end
+   super
  end
 
   # GET /resource/edit
