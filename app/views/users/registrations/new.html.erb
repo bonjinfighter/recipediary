@@ -19,6 +19,7 @@
         <% pass=Devise.friendly_token[4, 30]%>
         <%= hidden_field :password, pass %>
         <%= hidden_field :password_confirmation, pass %> 
+        <% end %>
       <% else %>
         <div class="form-group">
           <%= f.label :password , :class => "form-label"%>
