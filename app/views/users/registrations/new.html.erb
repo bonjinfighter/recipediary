@@ -17,6 +17,9 @@
       
       <%if @sns_id.present? %>
        <%= hidden_field_tag :sns_auth, true %>
+         <p>パスワード、必要になる場面がある顔知れないので、一応登録してください！面倒かけてごめんなさい。</p>
+          <%= f.label :password , :class => "form-label"%>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", :class =>"form-control" %>
       <% else %>
         <div class="form-group">
           <%= f.label :password , :class => "form-label"%>
