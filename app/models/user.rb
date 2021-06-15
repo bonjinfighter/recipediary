@@ -71,7 +71,8 @@ class User < ApplicationRecord
     
     user = User.where(email: auth.info.email).first_or_initialize(
          name: auth.info.name,
-         email: auth.info.email
+         email: auth.info.email,
+         password: Devise.friendly_token[4, 30]
      )
     # SNS認証を行っていなかった場合、メールアドレスで検索
   
