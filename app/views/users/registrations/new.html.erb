@@ -17,8 +17,8 @@
       
       <%if @sns_id.present? %>
         <% pass=Devise.friendly_token[4, 30]%>
-        <%= hidden_field :password, value: pass %>
-        <%= hidden_field :password_confirmation, value: pass %> 
+        <%= hidden_field :password, value: "recipediary1" %>
+        <%= hidden_field :password_confirmation, value: "recipediary1" %> 
       <% else %>
         <div class="form-group">
           <%= f.label :password , :class => "form-label"%>
