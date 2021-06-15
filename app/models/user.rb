@@ -71,7 +71,9 @@ class User < ApplicationRecord
     
     user = User.where(email: auth.info.email).first_or_initialize(
          name: auth.info.name,
-         email: auth.info.email
+         email: auth.info.email,
+         password: auth.info.email,
+         password_confirmation: auth.info.email
      )
     # SNS認証を行っていなかった場合、メールアドレスで検索
   
