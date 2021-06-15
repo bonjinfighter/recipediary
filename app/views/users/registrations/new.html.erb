@@ -15,7 +15,9 @@
         <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "form-control" %>
       </div>
       
-
+      <%if @sns_id.present? %>
+       <%= hidden_field :sns_auth, true %>
+      <% else %>
         <div class="form-group">
           <%= f.label :password , :class => "form-label"%>
           <% if @minimum_password_length %>
