@@ -272,7 +272,9 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, FACEBOOK_ID='781268029243749', FACEBOOK_SECRET_KEY='8681f5dd000d389b6b9e420b3c6b5680'
 
+  
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
@@ -321,7 +323,7 @@ Devise.setup do |config|
     #既定値はtrueで, リセットされた後に自動的にサインインする。
     config.sign_in_after_reset_password = true
   #（略）
-    config.omniauth :facebook, FACEBOOK_ID='781268029243749', FACEBOOK_SECRET_KEY='8681f5dd000d389b6b9e420b3c6b5680'
 
   end
+  
 end
