@@ -16,7 +16,6 @@
       </div>
       
       <%if @sns_id.present? %>
-       <%= hidden_field_tag :sns_auth, true %>
          <p>パスワード、必要になる場面がある顔知れないので、一応登録してください！面倒かけてごめんなさい。</p>
           <div class="form-group">
           <%= f.label :password , :class => "form-label"%>
