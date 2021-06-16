@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, 
          :omniauthable, omniauth_providers: [:facebook]
 
-  has_many :sns_credentials
+  has_many :sns_credentials, dependent: :destroy
   
   before_save { self.email.downcase! }
   validates :name, presence: true, length: { maximum: 50 }
