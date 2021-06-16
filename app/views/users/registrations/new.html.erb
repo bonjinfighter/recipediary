@@ -16,11 +16,7 @@
       </div>
       
       <%if @sns_id.present? %>
-         <p>SNSで認証はしていますが、パスワード、必要になる場面があるかもしれないので、一応登録してください！面倒かけてごめんなさい。</p>
-          <div class="form-group">
-          <%= f.password_field :password, anything1 %>
-          <%= f.password_field :password_confirmation, anything1 %>
-        </div>
+       <%= hidden_field_tag :sns_auth, true %>
       <% else %>
         <div class="form-group">
           <%= f.label :password , :class => "form-label"%>

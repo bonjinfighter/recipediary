@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, 
-         :omniauthable, omniauth_providers: %i[facebook]
+         :omniauthable, omniauth_providers: [:facebook]
 
   has_many :sns_credentials
   
@@ -71,7 +71,7 @@ class User < ApplicationRecord
     
     user = User.where(email: auth.info.email).first_or_initialize(
          name: auth.info.name,
-         email: auth.info.email,
+         email: auth.info.email
      )
     # SNS認証を行っていなかった場合、メールアドレスで検索
   

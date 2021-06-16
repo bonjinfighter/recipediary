@@ -310,7 +310,6 @@ Devise.setup do |config|
   # When set to false, does not sign a user in automatically after their password is
   # changed. Defaults to true, so a user is signed in automatically after changing a password.
   # config.sign_in_after_change_password = true
-  Devise.setup do |config|
   #（略）
     # メールを送信するアドレス
     config.mailer_sender = ENV["GOOGLE_MAIL_ADDRESS"]
@@ -324,6 +323,5 @@ Devise.setup do |config|
     config.sign_in_after_reset_password = true
   #（略）
 
-  end
-  
+
 end
