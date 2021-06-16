@@ -1,6 +1,5 @@
 class ToppagesController < ApplicationController
   before_action :authenticate_user!
-
   def index
     @recipe = current_user.recipes.build
     @recipes = current_user.recipes.order(id: :desc).page(params[:page])
