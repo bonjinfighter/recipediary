@@ -15,8 +15,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
  def create
    if params[:sns_auth] == 'true'
-     params[:user][:password] = "abcdefg1"
-     params[:user][:password_confirmation] = "abcdefg1"
+     pass = Devise.friendly_token
+     params[:user][:password] = pass
+     params[:user][:password_confirmation] = pass
    end
    super
  end
