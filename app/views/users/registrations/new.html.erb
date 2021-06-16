@@ -16,8 +16,8 @@
       </div>
       
       <%if @sns_id.present? %>
-       <%= hidden_field_tag :sns_auth, true %>
-      <% else %>
+         <p>今後Facebookでログインはできますが、パスワードも登録してください。</p>
+      <% end %>
         <div class="form-group">
           <%= f.label :password , :class => "form-label"%>
           <% if @minimum_password_length %>
@@ -30,7 +30,6 @@
           <%= f.label :password_confirmation, :class => "form-label" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", :class =>"form-control" %>
         </div>
-      <% end %>
       
         <div class="form-group">
           <%= f.label :title, "紹介文(任意)", :class =>"form-label" %><br />
