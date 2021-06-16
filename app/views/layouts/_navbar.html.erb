@@ -16,9 +16,8 @@
               <li class="nav-item"><%= link_to 'お気に入りレシピ', likes_user_path(current_user), class:"nav-link" %></li>
               <li class="nav-item"><%= link_to 'レシピ友達', followings_user_path(current_user), class:"nav-link" %></li>
       </ul>
-      <ul class="navbar-nav mr-auto">
-      </ul>
-      <ul class="navbar-nav">
+      <ul class="navbar-nav ml-auto">
+
               <li class="nav-item"><%= link_to '全てのレシピ', recipes_path, class:"nav-link" %></li>
               <li class="nav-item"><%= link_to '全てのユーザー', users_path, class:"nav-link" %></li>
               <li class="nav-item"><%= link_to 'ユーザー情報', edit_user_registration_path(current_user), class:"nav-link" %></li>
@@ -29,7 +28,7 @@
           <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: 'nav-link' %></li>
           <li class="nav-item"><%= link_to 'ログイン', new_user_session_pathclass: 'nav-link' %></li>
         <% end %>
-      </ul>
+
     </div>
   </nav>
 </header>

@@ -1,11 +1,11 @@
-<%- if controller_name != 'sessions' %>
-  <%= link_to "ログインはこちら", new_session_path(resource_name) , class: 'btn btn-outline-secondary btn-block  w-auto mt-3' %><br />
-<% end %>
-
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "#{OmniAuth::Utils.camelize(provider)}でログイン", omniauth_authorize_path(resource_name, provider), method: :post, class: 'btn btn-sm btn-primary btn-block mt-4'  %><br />
+    <%= link_to "#{OmniAuth::Utils.camelize(provider)}でログイン/新規登録", omniauth_authorize_path(resource_name, provider), method: :post, class: 'btn btn-sm btn-primary btn-block mt-4'  %><br />
   <% end %>
+<% end %>
+
+<%- if controller_name != 'sessions' %>
+  <%= link_to "ログインはこちら", new_session_path(resource_name) , class: 'btn btn-outline-secondary btn-block  w-auto mt-3' %><br />
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
