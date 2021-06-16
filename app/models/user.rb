@@ -14,8 +14,6 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   validates :title, length: { maximum: 255 }
 
-  acts_as_paranoid
-  
 
   has_many :recipes
   has_many :relationships
