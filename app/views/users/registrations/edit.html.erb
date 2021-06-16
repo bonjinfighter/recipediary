@@ -15,17 +15,13 @@
         <%= f.email_field :email, autocomplete: "email", :class => "form-control"  %>
       </div>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-      <% end %>
-      
       <div class="form-group">
-        <%= f.label :password, :class => "form-label" %> <i>(６文字以上。変更が必要なければ空欄にしてください)</i><br />
+        <%= f.label :新しいパスワード, :class => "form-label" %> <i>(6文字以上)</i><br />
         <%= f.password_field :password, autocomplete: "new-password", :class => "form-control" %>
       </div>
 
   <div class="form-group">
-    <%= f.label :password_confirmation, :class => "form-label" %><br />
+    <%= f.label :新しいパスワードの確認, :class => "form-label" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "form-control" %>
   </div>
   
@@ -34,6 +30,10 @@
     <%= f.text_field :title , class: 'form-control', rows: 5%>  
   </div>
         
+  <div class="form-group">
+    <%= f.label :current_password, :class => "form-label"%> <i>(ユーザー情報の変更のために、現在のパスワードをご入力ください)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password", :class => "form-control" %>
+  </div>    
 
   <div class="actions">
     <%= f.submit "変更する", class:"btn btn-outline-primary" %>
