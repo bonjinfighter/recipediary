@@ -9,11 +9,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   
   # GET /resource/sign_up
   def new
+    redirect_to :root if user_signed_in?
     super
   end
 
   # POST /resource
  def create
+   if params[:sns_auth] == 'true'
+     pass = Devise.friendly_token
+     params[:user][:password] = pass
+     params[:user][:password_confirmation] = pass
+   end
    super
  end
 
