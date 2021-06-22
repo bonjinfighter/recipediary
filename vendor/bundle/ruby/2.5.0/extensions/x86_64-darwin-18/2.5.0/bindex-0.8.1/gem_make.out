@@ -1,0 +1,15 @@
+current directory: /Users/yukinam/レポジトリ/recipediary/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+/Users/yukinam/.rbenv/versions/2.5.3/bin/ruby -r ./siteconf20210620-20481-28yt0u.rb extconf.rb
+creating Makefile
+
+current directory: /Users/yukinam/レポジトリ/recipediary/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/yukinam/レポジトリ/recipediary/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/yukinam/レポジトリ/recipediary/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20210620-20481-gtgm06/skiptrace/internal

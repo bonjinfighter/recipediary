@@ -2,6 +2,7 @@
   "name": "recipes",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "4.3.0"
+    "@rails/webpacker": "4.3.0",
+    "yarn": "^1.22.10"
   }
 }
