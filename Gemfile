@@ -90,3 +90,5 @@ gem "omniauth-rails_csrf_protection"
 gem 'high_voltage', '~> 3.1'
 
 gem 'webpacker', '~> 4.0'
+
+gem 'serviceworker-rails'

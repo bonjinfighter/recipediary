@@ -17,3 +17,4 @@
 
 //= require jquery3
 //= require bootstrap-sprockets
+//= require serviceworker-companion
