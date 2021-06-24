@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks',
    }
    
+  get '.well-known/assetlinks' => "wellknown#assetlinks"
+
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy] do
     member do
       get :followings
