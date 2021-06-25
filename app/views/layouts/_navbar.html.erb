@@ -1,9 +1,9 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-light mb-2 fixed-top p-0">
+  <nav class="navbar navbar-expand-md navbar-dark mb-2 fixed-top p-0">
       <a href="/"><img class="navbar-brand" href="" src="/images/logo_nav.png"></a>
       <% if user_signed_in? %>
         <div id="register_button">
-          <%= link_to 'レシピ登録', new_recipe_path, class: 'btn btn-outline-dark' %>
+          <%= link_to 'レシピ登録', new_recipe_path, class: 'btn btn-outline-light' %>
         </div>
         <div class='onesignal-customlink-container'></div>
       <% end %>
@@ -18,11 +18,15 @@
               <li class="nav-item"><%= link_to 'レシピ友達', followings_user_path(current_user), class:"nav-link" %></li>
       </ul>
       <ul class="navbar-nav ml-auto">
-
-              <li class="nav-item"><%= link_to '全てのレシピ', recipes_path, class:"nav-link" %></li>
-              <li class="nav-item"><%= link_to '全てのユーザー', users_path, class:"nav-link" %></li>
-              <li class="nav-item"><%= link_to 'ユーザー情報', edit_user_registration_path(current_user), class:"nav-link" %></li>
-              <li class="nav-item" ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"nav-link text-danger"%></li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">その他メニュー</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item"><%= link_to '全てのレシピ', recipes_path, class:"nav-link text-dark" %></a>
+              <a class="dropdown-item"><%= link_to '全てのユーザー', users_path, class:"nav-link text-dark" %></a>
+              <a class="dropdown-item"><%= link_to 'ユーザー情報', edit_user_registration_path(current_user), class:"nav-link text-dark" %></a>
+              <a class="dropdown-item" ><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:"nav-link text-danger"%></a>
+            </div>
+        </li>
       </ul>
 
         <% else %>
