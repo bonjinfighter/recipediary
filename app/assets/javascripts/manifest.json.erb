@@ -1,12 +1,12 @@
 <% icon_sizes = Rails.configuration.serviceworker.icon_sizes %>
 {
-  "name": "RecipeDiary",
-  "short_name": "RecipeDiary",
+  "name": "Recipe Diary",
+  "short_name": "Recipe Diary",
   "start_url": "/",
   "icons": [
   <% icon_sizes.map { |s| "#{s}x#{s}" }.each.with_index do |dim, i| %>
     {
-      "src": "<%= image_path "public/images/icon.png" %>",
+      "src": "<%= asset_path "public/images/icons/icon-#{dim}.png" %>", 
       "sizes": "<%= dim %>",
       "type": "image/png"
     }<%= i == (icon_sizes.length - 1) ? '' : ',' %>
