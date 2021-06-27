@@ -5,13 +5,14 @@ Rails.application.routes.draw do
   get 'relationships/destroy'  
   
   root to:  'toppages#index'
+ 
+  get '.well-known/assetlinks' => "wellknown#assetlinks"
 
 
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks',
    }
    
-  get '.well-known/assetlinks' => "wellknown#assetlinks"
 
   resources :users, only: [:index, :show, :create, :edit, :update, :destroy] do
     member do
