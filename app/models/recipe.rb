@@ -10,4 +10,8 @@ class Recipe < ApplicationRecord
   has_many :users, through: :favorite, source: :user
 
   mount_uploader :image, ImageUploader
+
+  def self.search(search)
+    Recipe.where(['title LIKE ?', "%#{search}%"])
+  end
 end

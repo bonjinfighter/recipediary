@@ -93,5 +93,9 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+  
+  def self.search(search)
+    Recipe.where(['title LIKE ?', "%#{search}%"])
+  end
 end
   

@@ -5,7 +5,13 @@
         <%= render 'relationships/follow_button', user: @user %>
         <p class="mt-2">紹介文：<%= @user.title %></p>
       <% end %>
-      <div class="row">
+        <div class="search-form">
+          <%= form_with url: search_user_path, method: :get, local: true do |f| %>
+            <%= f.text_field :search, :class => "form-control col-sm-4" %>
+            <%= f.submit :検索, :class => "mt-0 btn btn-primary"  %>
+          <% end %>
+        </div>
+        <div class="row">
         <% @recipes.each do |recipe| %>
           <div class="col-md-4 mt-2">
             <div class="card h-100" style="background: rgba(255,255,255,0.1);">
@@ -19,6 +25,7 @@
             </div>
           </div>
         <% end %>
+          
         <% unless @recipes.any? %>
           <div class="col-md-6">
                 <p class="card-text">レシピの登録がまだありません。</p>

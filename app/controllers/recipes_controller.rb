@@ -55,4 +55,5 @@ before_action :correct_user, only: [:edit, :update, :destroy]
       redirect_to root_url
     end
   end
+
 end

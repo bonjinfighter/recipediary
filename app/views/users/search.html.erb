@@ -1,0 +1,24 @@
+<div class="textbg p-3 pb-5">
+  <div class="container">
+    <h3 class="p-2 pt-3 ">検索結果</h3>
+    <%= render 'relationships/follow_button', user: @user %>
+    <div class="row">
+    <% @results.each do |recipe| %>
+      <% if @results.any? %>
+        <div class="col-md-4 mt-2">
+          <div class="card h-100" style="background: rgba(255,255,255,0.1);">
+              <img class="card-img-top"  src="<%= recipe.image %>" alt="">
+                <div class="card-body">
+                  <p class="card-title"><%= recipe.title %></p>
+                  <p class="card-subtitle"><%= recipe.date %></p>
+                  <p class="card-text"><%= recipe.content %></p>
+                  <%= link_to "詳細",("/recipes/#{recipe.id}"), class: 'btn btn-outline-dark' %>
+                </div>
+          </div>
+        </div>
+      <% else %>
+        <p>該当のレシピは見つかりませんでした。</p>
+        <%= link_to '自分のレシピ', user_path(current_user) %>
+      <% end %>
+    <% end %>
+  </div>

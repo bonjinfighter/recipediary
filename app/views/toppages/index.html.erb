@@ -1,7 +1,7 @@
   <div class="textbg m-0">
     <div class="container mt-3 pt-2 pb-3">
       <h3 class="p-2"><%= current_user.name %>のレシピ候補<a class="ml-2 mt-0 btn btn-outline-dark" onclick="location.reload();" role="button">シャッフルする</a></h3>
-      <p class-"pt-0 pb-0 mt-0 mb-0" style="font-size: 90%;">お気に入りのレシピからランダムに3つ表示</p>
+      <p class="pt-0 pb-0 mt-0 mb-0" style="font-size: 90%;">お気に入りのレシピからランダムに3つ表示</p>
       <div class="row">
           <% @likes.sample(3).each do |recipe| %>
               <div class="col-md-4 text-truncate mt-2">

@@ -18,15 +18,14 @@ Rails.application.routes.draw do
       get :followings
       get :followers
       get :likes
+      get :search
     end
   end
-
+  
   resources :recipes, only: [:index, :new, :show, :create, :edit, :update, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only:[:create, :destroy]
 
   resource :passwords, only: [:create, :update]
-
-
 
 end     
