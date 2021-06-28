@@ -8,11 +8,12 @@
   <%= link_to "ログインはこちら", new_session_path(resource_name) , class: 'btn btn-outline-secondary btn-block  w-auto mt-3' %><br />
 <% end %>
 
+
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to "パスワードをお忘れですか？", new_password_path(resource_name), class: 'btn btn-outline-secondary btn-block  w-auto'  %><br />
 <% end %>
 
-<%- zif devise_mapping.confirmable? && controller_name != 'confirmations' %>
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <%= link_to "再設定メールが届かないですか？", new_confirmation_path(resource_name), class: 'btn btn-secondary btn-block  w-auto'  %><br />
 <% end %>
 
