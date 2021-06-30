@@ -1,7 +1,11 @@
 <div class="textbg p-3 pb-5">
   <div class="row">
     <div class="col-sm-6 offset-sm-3">
-      <h3>ログイン</h3>
+      <a href="https://about.recipe-diary.com"><img src="/images/icons/icon-512x512.png" style="max-width:50%; display: block; margin: auto;"></a>
+      <div class="btn btn-link" style="display: block; margin: auto; margin-bottom:20px;">
+        <a href="https://about.recipe-diary.com">レシピ日記について</a>
+      </div>
+      <h2 style="text-align: center; margin-bottom:10px;"> ログイン </h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
         <div class="form-group">

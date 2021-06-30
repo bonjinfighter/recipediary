@@ -1,5 +1,6 @@
 class ToppagesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
+  
   def index
     @recipe = current_user.recipes.build
     @recipes = current_user.recipes.order(id: :desc).page(params[:page])

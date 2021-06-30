@@ -30,10 +30,16 @@
             </div>
         </li>
       </ul>
-
         <% else %>
-          <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'ログイン', new_user_session_pathclass: 'nav-link' %></li>
+          <div class="row">
+            <div style="margin-left: 160px;">
+            <ul class="navbar-nav">
+            <li><%= link_to '新規登録', new_user_registration_path, class: 'nav-link' %></li>
+            <li><%= link_to 'ログイン', new_user_session_path, class: 'nav-link' %></li>
+            <li><a href="https://about.recipe-diary.com" class="nav-link">レシピ日記について</a></li>
+            </ul>
+            </div>
+          </div>
         <% end %>
 
     </div>
