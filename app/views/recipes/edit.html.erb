@@ -3,7 +3,7 @@
   <h3 class="p-2 pt-3 ">レシピ詳細　編集</h3>
     <div class="form-group">
       <img src="<%= @recipe.image %>" alt="">
-    <%=f.label "画像アップロード" %><br><%= f.file_field :image, class: "image" %></p>
+    <%=f.label "画像をアップロード" %><br><%= f.file_field :image, class: "image" %></p>
     <%=f.label "料理名"%>
       <%= f.text_area :title, class: 'form-control', rows: 1 %><br>
 

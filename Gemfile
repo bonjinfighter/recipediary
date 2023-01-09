@@ -60,8 +60,6 @@ gem 'rmagick'
 
 gem 'rinku'
 
-gem 'psych', '< 4'
-
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
 end
@@ -94,3 +92,5 @@ gem 'high_voltage', '~> 3.1'
 gem 'webpacker', '~> 4.0'
 
 gem 'serviceworker-rails'
+
+gem "psych", "<4"
